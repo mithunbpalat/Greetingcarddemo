@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Card</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <h1 style="text-align: center;font-size: 50px;">ONLINE GREETING CARD</h1><br>
+    <ul class="nav nav-pills nav-justified">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/usercard">User Card</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/userlogin">Logout</a>
+        </li>
+      </ul><br><br><br>
+    <div style="padding:3% 3%;margin: auto;background-color:lightgoldenrodyellow;">
+      <h1 style="text-align: center;font-size: 50px;">Select Your Card Template</h1><br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3">
+                  <div style="margin:auto;border:2px solid white;border-radius:5px;padding: 10px;">
+                    <h3 style="text-align: center;">Send Email(All information required*)</h3>
+                      <form action="#" post="method"> 
+                          <div class="form-group">
+                              <label for="to">To Email Address:</label><br>
+                              <input type="text" class="form-control" [(ngModel)]="greeting.toEmail" placeholder="Enter To Email Address" id="to" name="to" required>
+                            </div><br>
+                            <div class="form-group">
+                              <label for="msg">Body/Message:</label><br>
+                              <textarea class="form-control" [(ngModel)]="greeting.body" placeholder="Enter Message" style="width:300px;height:300px;" id="msg" name="msg" required></textarea>
+                            </div><br>
+                            <div class="form-group">
+                              <label for="sub">Subject:</label><br>
+                              <input type="text" class="form-control" [(ngModel)]="greeting.subject" placeholder="Enter Subject" id="sub" name="sub" required>
+                            </div><br>
+                            <div class="form-group">
+                              <label for="ext">External Attachment System Path:</label><br>
+                              <input type="text" class="form-control" [(ngModel)]="greeting.extattachment"  placeholder="Enter External Attachment System Path with Filename" id="ext" name="ext" required>
+                            </div><br> 
+                            <div class="form-group">
+                              <label for="att">Select Card Template:</label><br>
+                              <input type="text" class="form-control" [(ngModel)]="greeting.attachment" placeholder="Select Attachment" id="att" name="att" disabled>
+                            </div><br>
+                            <h2>{{ msg }}</h2><br><br>
+                          <input type="submit" class="btn btn-primary" style="width:95%;font-size:20px;background-color:blue;color:white;" value="SEND EMAIL" (click)="mail()"><br><br>
+                            <h2>{{ message }}</h2><br>
+                      </form>
+                      </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                  <div class="card mt-3">
+                    <div class="card-header text-center">List of Card Templates</div>
+                    <ul
+                      class="list-group list-group-flush"
+                      *ngFor="let file of fileInfos | async"
+                    >
+                      <li class="list-group-item">
+                        <a href="{{ file.url }}" ><img [src]="file.url" style="width:600px;height:500px;" (click)="select(file.name)"></a><br>
+                        <a href="{{ file.url }}">{{ file.name }}</a><br>
+                      </li>
+                    </ul>
+                  </div><br><br>
+                </div>
+
+
+                <div class="col-sm-3">                    
+                  <div class="card mt-3">
+                    <div class="card-header text-center">Advertisement Of Card Template</div>
+                    <ul
+                      class="list-group list-group-flush"
+                      *ngFor="let file of fileInfos1 | async"
+                    >
+                      <li class="list-group-item">
+                        <a href="{{ file.url }}"><img [src]="file.url" style="width:300px;height:300px;" (click)="select(file.name)"></a><br>
+                        <a href="{{ file.url }}">{{ file.name }}</a><br>
+                      </li>
+                    </ul>
+                  </div><br><br>
+                </div>
+            
+            
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

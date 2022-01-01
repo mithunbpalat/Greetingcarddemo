@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+    <style>
+        * {
+            color:white;
+        }
+    </style>
+</head>
+<body style="background-color:rgb(14, 3, 78); padding: 5% 5%;">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <h1 style="text-align: center;font-size: 50px;">ONLINE GREETING CARD</h1><br>
+    <ul class="nav nav-pills nav-justified">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/userlogin">USER LOGIN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/adminlogin">ADMIN LOGIN</a>
+        </li>
+      </ul><br><br><br>
+
+    <button class="btn btn-success w-50" routerLink="/registration" style="margin-left: 25%;text-align:center;color:white;">CREATE NEW ACCOUNT</button><br><br>  
+    <div style="margin: auto;border: 2px solid yellow;border-radius: 5px;padding: 15px 26px;width:55%;">
+        <br><br><h1 style="text-align: center;">USER LOGIN</h1><br>
+        <h3 id="demo1" style="color:red;">Invalid Username or Password</h3><br>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="username">USERNAME :</label><br>
+                <input type="text" class="form-control" (click)="searchById(test.username)" [(ngModel)]="test.username" placeholder="Enter Username" id="username" name="username">
+              </div><br>
+              <div class="form-group">
+                <label for="password">PASSWORD :</label><br>
+                <input type="text" class="form-control" (click)="searchById(test.username)" [(ngModel)]="test.password" placeholder="Enter Password" id="password" name="password">
+              </div><br> 
+              <button class="btn btn-primary w-100" (click)="searchById(test.username)" (click)="te(user.username,test.username,user.password,test.password)" style="background-color: coral;color:black;">VERIFY</button><br>
+              <button type="submit" class="btn btn-primary w-100" routerLink="/usercard" id="demo" style="background-color: yellow;color:black;" disabled>LOGIN DISABLED</button>
+        </form><br>
+    </div>
+</body>
+</html>
