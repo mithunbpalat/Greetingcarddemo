@@ -49,7 +49,7 @@ public class EmailSenderService {
 		FileSystemResource fileSystem = new FileSystemResource(new File(extattachment));
 		FileSystemResource fileSystem1 = new FileSystemResource(new File(attachment));
 		mimeMessageHelper.addAttachment(fileSystem.getFilename(),fileSystem);
-		mimeMessageHelper.addAttachment(fileSystem1.getFilename(),fileSystem);
+		mimeMessageHelper.addAttachment(fileSystem1.getFilename(),fileSystem1);
 		
 		mailSender.send(mimeMessage);
 		System.out.println("Mail with Attachment Send...");
